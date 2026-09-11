@@ -1,0 +1,159 @@
+﻿@{
+    Layout = null;
+
+    var student = ViewData["Student"] as MVCReady.Models.Student;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .student-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .student-info {
+            border-top: 1px solid #eee;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .value {
+            color: #222;
+        }
+
+        .student-id {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .no-student {
+            text-align: center;
+            padding: 20px;
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="student-card">
+
+            <div class="header">
+                <h1>@ViewData["Header"]</h1>
+                <p>Student Information</p>
+            </div>
+
+            @if (student != null)
+            {
+                <div class="student-info">
+
+                    <div class="info-row">
+                        <span class="label">Student ID</span>
+                        <span class="value student-id">
+                            @student.StudentId
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">Name</span>
+                        <span class="value">
+                            @student.Name
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">Branch</span>
+                        <span class="value">
+                            @student.Branch
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">Section</span>
+                        <span class="value">
+                            @student.Section
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">Gender</span>
+                        <span class="value">
+                            @student.Gender
+                        </span>
+                    </div>
+
+                </div>
+            }
+            else
+            {
+                <div class="no-student">
+                    Student information is not available.
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</body>
+</html>

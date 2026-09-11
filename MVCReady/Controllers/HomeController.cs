@@ -1,5 +1,9 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using MVCReady.Models;
+using System.Diagnostics;
+using System.Reflection;
+using System.Xml.Linq;
+using static System.Collections.Specialized.BitVector32;
 
 
 namespace MVCReady.Controllers
@@ -11,6 +15,26 @@ namespace MVCReady.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+        }
+
+        public ViewResult Details()
+        {
+            ViewData["title"] = "Student Deatails Page";
+            ViewData["Header"] = "Student Details";
+
+            Student student = new Student()
+
+            {
+                StudentId = 101,
+                Name = "Akshay",
+                Branch = "Mech",
+                Section = "A",
+                Gender = "Male"
+            };
+            //storing Student Data
+            ViewData["Student"]=student;
+
+            return View();
         }
 
         public IActionResult Index()
