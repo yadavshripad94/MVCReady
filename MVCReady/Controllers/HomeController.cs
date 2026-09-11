@@ -17,6 +17,7 @@ namespace MVCReady.Controllers
             _logger = logger;
         }
 
+        //Viewdata Example
         public ViewResult Details()
         {
             ViewData["title"] = "Student Deatails Page";
@@ -33,6 +34,27 @@ namespace MVCReady.Controllers
             };
             //storing Student Data
             ViewData["Student"]=student;
+
+            return View();
+        }
+
+
+        //ViewBag example
+        public ViewResult ViewBagDetails()
+        {
+            ViewBag.Title= "Student Details Page";
+            ViewBag.Header = "Student Details";
+
+            Student s1 = new Student()
+            {
+                StudentId = 101,
+                Name = "James",
+                Branch = "CSE",
+                Section = "A",
+                Gender = "Male"
+            };
+
+            ViewBag.Student = s1;
 
             return View();
         }
